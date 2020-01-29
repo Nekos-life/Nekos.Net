@@ -1,21 +1,28 @@
-### Nekos.Net 
-An official `.NET Core` wrapper for [nekos.life](https://nekos.life) targetting .NET Core 2.1 (2.2 soon)
+### Nekos.Net
+A C# library to interact with nekos.life API targetting .NET Core.
 
-Other version of this library (i will NOT give you ANY support) : https://bitbucket.org/_NaTiVe/nekosdotnet/src/master/
+Available via NuGet.
 
-### Using this
-1. Clone this repo
-2. Open Visual Studio and click Build
-3. Copy Nekos.Net.dll and Newtonsoft.Json.dll in bin/netcoreapp21/Debug into your project
-4. Add reference of Nekos.Net in your project
 
-### Documentation
-When you use IntelliSense, Visual Studio will show the documentation of that function (with XMLDoc)
+### Example code snippet
+```cs
+using Nekos.Net;
+using Nekos.Net.Responses;
+using System.Threading.Tasks;
 
-### TODO 
-- [ ] Upload this to NuGet
-- [ ] Proper documentation
-  - [ ] Integrate docfx into my lib
-- [ ] Upload the documentation
-  - [ ] Finding how to host docfx in GitHub Pages (I will be blessed if someone helps me)
-- [ ] Rewrite the endpoint system to [enum type](https://www.tutorialsteacher.com/csharp/csharp-enum)
+class Program
+{ 
+    // Assuming Main() method is created
+
+    static async Task GetNekoStuffs()
+    {
+        NekosImage image = await NekosClient.GetRandomSfwAsync();
+        Console.WriteLine(image.FileUrl);
+    }
+}
+```
+
+### Join nekos.life family
+- Discord server: https://discord.gg/r4Ju6TJ
+- Patreon: https://patreon.com/nekos_life
+- nekos.life GitHub: https://github.com/Nekos-life

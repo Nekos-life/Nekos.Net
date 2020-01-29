@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekos.Net", "Nekos.Net\Nekos.Net.csproj", "{FD1F75DE-E427-4764-8921-5CCCE151DF7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

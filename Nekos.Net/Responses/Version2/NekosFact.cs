@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nekos.Net.Responses
+namespace Nekos.Net.Responses.Version2
 {
     /// <summary>
-    ///     Represents for /chat endpoint.
+    ///     Represents for /fact endpoint response.
     /// </summary>
     public class NekosFact
     {
         /// <summary>
         ///     Random fact.
         /// </summary>
-        [JsonProperty("fact")] 
-        public string Fact;
+        [JsonProperty("fact")] public string Fact;
     }
 }

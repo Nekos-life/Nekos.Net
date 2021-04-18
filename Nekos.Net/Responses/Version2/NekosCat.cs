@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nekos.Net.Responses
+namespace Nekos.Net.Responses.Version2
 {
     /// <summary>
-    ///     Represents for /cat endpoint.
+    ///     Represents for /cat endpoint response.
     /// </summary>
     public class NekosCat
     {

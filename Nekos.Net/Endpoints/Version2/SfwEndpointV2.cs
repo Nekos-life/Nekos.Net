@@ -1,12 +1,10 @@
-namespace Nekos.Net.Endpoints
+namespace Nekos.Net.Endpoints.Version2
 {
     /// <summary>
-    ///     Represents for SFW endpoints
+    ///     Represents for v2 SFW endpoints
     /// </summary>
-    public enum SfwEndpoint
+    public enum SfwEndpointV2
     {
-        // credits: https://github.com/Nekos-life/nekos-dot-life/blob/master/endpoints.json
-
         Tickle,
         Slap,
         Poke,
@@ -18,6 +16,6 @@ namespace Nekos.Net.Endpoints
         Hug,
         Fox_Girl,
         Feed,
-        Cuddle,
+        Cuddle
     }
 }

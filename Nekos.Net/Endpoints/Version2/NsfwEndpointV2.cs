@@ -1,12 +1,10 @@
-namespace Nekos.Net.Endpoints
+namespace Nekos.Net.Endpoints.Version2
 {
     /// <summary>
-    ///     Represent for NSFW endpoints
+    ///     Represent for v2 NSFW endpoints.
     /// </summary>
-    public enum NsfwEndpoint
+    public enum NsfwEndpointV2
     {
-        // credits: https://github.com/Nekos-life/nekos-dot-life/blob/master/endpoints.json
-
         Random_Hentai_Gif,
         Pussy,
         NsfwNekoGif,
@@ -22,13 +20,13 @@ namespace Nekos.Net.Endpoints
         Yuri,
         Trap,
         Tits,
-        SoloG, // girlSoloGif
-        Solo, // girlSolo
+        SoloG,
+        Solo,
         SmallBoobs,
-        PWankG, // pussyWankGif
+        PWankG,
         Pussy_JPG,
-        Lewd_Kemo, // Kemonomimi
-        Lewd_K, // K = Kitsune. I love senko nya ~
+        Lewd_Kemo,
+        Lewd_K,
         Keta,
         HoloLewd,
         HoloEro,

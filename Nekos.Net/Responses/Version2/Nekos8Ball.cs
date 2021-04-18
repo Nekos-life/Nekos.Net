@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nekos.Net.Responses
+namespace Nekos.Net.Responses.Version2
 {
     /// <summary>
-    ///     Represents for /8ball endpoint.
+    ///     Represents for /8ball endpoint response.
     /// </summary>
     public class Nekos8Ball
     {

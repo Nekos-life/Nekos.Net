@@ -1,36 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <ApplicationIcon />
         <OutputType>Library</OutputType>
         <StartupObject />
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <Authors>Swyrin</Authors>
         <Company>nekos.life</Company>
         <Product />
         <Description>A C# library for interacting with nekos.life API.</Description>
-        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/Nekos-life/Nekos.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Nekos-life/Nekos.Net</RepositoryUrl>
         <PackageTags>nekos nekos.net nekos.life</PackageTags>
-        <NeutralLanguage></NeutralLanguage>
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageIconUrl />
+        <PackageIconUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/icon.png</PackageIconUrl>
+        <PackageLicenseUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/LICENSE.md</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
-        <Version>1.0.2</Version>
+        <PackageVersion>2.0.0</PackageVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
     <ItemGroup>
       <None Include="..\LICENSE.md">
         <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
-      <None Include="bin\Release\delivery\icon.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
       </None>
     </ItemGroup>
 </Project>

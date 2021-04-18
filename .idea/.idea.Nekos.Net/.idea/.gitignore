@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Nekos.Net.iml
+# Datasource local storage ignored files
+/../../../../../../:\something I made when I have free time\Nekos.Net-master\.idea\.idea.Nekos.Net\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

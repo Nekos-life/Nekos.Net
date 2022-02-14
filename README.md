@@ -9,7 +9,7 @@
 
 `Nekos.Net` is an asynchronous library to interact with [nekos.life](https://nekos.life) API, currently
 supporting both v2 and v3 API. If you love this repo, consider giving it a star :star:
--------------------------------------------------------------------------------------------------
+
 # :question: How to use
 ### Version 2
 ```c#
@@ -40,7 +40,7 @@ public class Test
     }
 }
 ```
--------------------------------------------------------------------------------------------------
+
 # Want to join us?
 - Discord: https://discord.com/invite/BARzYz8
 - Patreon: https://patreon.com/nekos_life

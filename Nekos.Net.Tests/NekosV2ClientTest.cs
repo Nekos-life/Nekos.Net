@@ -1,6 +1,7 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nekos.Net.Client;
-using Nekos.Net.Endpoints.V2;
+using Nekos.Net.V2;
+using Nekos.Net.V2.Endpoint;
 
 namespace Nekos.Net.Tests
 {

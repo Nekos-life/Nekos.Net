@@ -1,6 +1,6 @@
 using System;
 
-namespace Nekos.Net.Endpoints.V2;
+namespace Nekos.Net.V2.Endpoint;
 
 /// <summary>
 ///     List of NSFW endpoints

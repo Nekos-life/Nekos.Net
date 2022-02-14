@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nekos.Net.Responses.V2;
+namespace Nekos.Net.V2.Responses;
 
 /// <summary>
 ///     Represents for /why endpoint response.

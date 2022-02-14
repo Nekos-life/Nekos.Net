@@ -1,12 +1,14 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Nekos.Net.V2;
+using Nekos.Net.V3;
 using Newtonsoft.Json;
 using Serilog;
 using Serilog.Extensions.Logging;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace Nekos.Net.Client;
+namespace Nekos.Net.Prototypes;
 
 /// <summary>
 ///     A boilerplate client.
@@ -94,7 +96,7 @@ public class BaseNekosClient
     /// <param name="destination">Full destination URl</param>
     /// <typeparam name="T">Class to deserialize from JSON.</typeparam>
     /// <returns>JSON-deserialized class.</returns>
-    protected async Task<T> GetResponseV2<T>(string destination)
+    protected async Task<T> GetResponse<T>(string destination)
     {
         using var httpClient = new HttpClient();
         var req = new HttpRequestMessage(HttpMethod.Get, destination);

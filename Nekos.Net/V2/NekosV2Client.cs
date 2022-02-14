@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Nekos.Net.Endpoints.V2;
-using Nekos.Net.Responses.V2;
+using Nekos.Net.Prototypes;
+using Nekos.Net.V2.Endpoint;
+using Nekos.Net.V2.Responses;
 
-namespace Nekos.Net.Client;
+namespace Nekos.Net.V2;
 
 public class NekosV2Client : BaseNekosClient
 {
@@ -66,7 +67,7 @@ public class NekosV2Client : BaseNekosClient
 
             for (var i = 0; i < count; ++i)
             {
-                var response = await GetResponseV2<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
+                var response = await GetResponse<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
                 responses.Add(response);
             }
         }
@@ -119,7 +120,7 @@ public class NekosV2Client : BaseNekosClient
 
             for (var i = 0; i < count; ++i)
             {
-                var response = await GetResponseV2<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
+                var response = await GetResponse<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
                 responses.Add(response);
             }
         }
@@ -151,7 +152,7 @@ public class NekosV2Client : BaseNekosClient
 
             for (var i = 0; i < count; ++i)
             {
-                var response = await GetResponseV2<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
+                var response = await GetResponse<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
                 responses.Add(response);
             }
         }
@@ -180,7 +181,7 @@ public class NekosV2Client : BaseNekosClient
 
             for (var i = 0; i < count; ++i)
             {
-                var response = await GetResponseV2<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
+                var response = await GetResponse<NekosImage>($"{HostUrl}{MediaRequestUrlSegment}/{dest}").ConfigureAwait(false);
                 responses.Add(response);
             }
         }
@@ -194,7 +195,7 @@ public class NekosV2Client : BaseNekosClient
     /// <returns>An 8ball response.</returns>
     public async Task<Nekos8Ball> Request8BallResponseAsync()
     {
-        return await GetResponseV2<Nekos8Ball>($"{HostUrl}{EightBallUrlSegment}").ConfigureAwait(false);
+        return await GetResponse<Nekos8Ball>($"{HostUrl}{EightBallUrlSegment}").ConfigureAwait(false);
     }
 
     /// <summary>
@@ -206,7 +207,7 @@ public class NekosV2Client : BaseNekosClient
     {
         List<NekosFact> facts = new();
         for (int i = 0; i < count; ++i)
-            facts.Add(await GetResponseV2<NekosFact>($"{HostUrl}{FactUrlSegment}").ConfigureAwait(false));
+            facts.Add(await GetResponse<NekosFact>($"{HostUrl}{FactUrlSegment}").ConfigureAwait(false));
 
         return facts;
     }
@@ -221,7 +222,7 @@ public class NekosV2Client : BaseNekosClient
         List<NekosName> names = new();
         
         for (int i = 0; i < count; ++i)
-            names.Add(await GetResponseV2<NekosName>($"{HostUrl}{NameUrlSegment}").ConfigureAwait(false));
+            names.Add(await GetResponse<NekosName>($"{HostUrl}{NameUrlSegment}").ConfigureAwait(false));
 
         return names;
     }
@@ -241,7 +242,7 @@ public class NekosV2Client : BaseNekosClient
         if (text.Length > 200)
             throw new ArgumentException($"Text length must be under 200: {text}", nameof(text));
 
-        return await GetResponseV2<NekosOwoify>($"{HostUrl}{OwOifyUrlSegment}?{nameof(text)}={text}");
+        return await GetResponse<NekosOwoify>($"{HostUrl}{OwOifyUrlSegment}?{nameof(text)}={text}");
     }
     
     /// <summary>
@@ -260,7 +261,7 @@ public class NekosV2Client : BaseNekosClient
         if (text.Length > 200)
             throw new ArgumentException($"Text length must be under 200: {text}", nameof(text));
 
-        return await GetResponseV2<NekosOwoify>($"{HostUrl}{SpoilerUrlSegment}?{nameof(text)}={text}");
+        return await GetResponse<NekosOwoify>($"{HostUrl}{SpoilerUrlSegment}?{nameof(text)}={text}");
     }
 
     /// <summary>
@@ -273,7 +274,7 @@ public class NekosV2Client : BaseNekosClient
         List<NekosWhy> questions = new();
         
         for (int i = 0; i < count; ++i)
-            questions.Add(await GetResponseV2<NekosWhy>($"{HostUrl}{WhyUrlSegment}").ConfigureAwait(false));
+            questions.Add(await GetResponse<NekosWhy>($"{HostUrl}{WhyUrlSegment}").ConfigureAwait(false));
 
         return questions;
     }

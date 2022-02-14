@@ -1,16 +1,10 @@
 ﻿// ReSharper disable InconsistentNaming
 
-namespace Nekos.Net.Endpoints.V3;
+namespace Nekos.Net.V3.Endpoints;
 
 /// <summary>
-///     Represents for v3 NSFW endpoints
+///     List of NSFW endpoints
 /// </summary>
-public class NsfwEndpointV3
-{
-    public SfwGifEndpoint Gif;
-    public SfwImgEndpoint Img;
-}
-
 public enum NsfwImgEndpoint
 {
     Pantyhose_Lewd,
@@ -21,8 +15,6 @@ public enum NsfwImgEndpoint
     Cosplay_Lewd,
     Futanari_Lewd,
     Blowjob_Lewd,
-    Shinobu_Ero,
-    Shinobu_Lewd,
     Kitsune_Lewd,
     All_Tags_Lewd,
     Kemonomimi_Ero,
@@ -42,7 +34,6 @@ public enum NsfwImgEndpoint
     Trap_Lewd,
     Pantyhose_Ero,
     Yiff_Lewd,
-    Hplay_Ero,
     Smallboobs_Lewd,
     Neko_Ero,
     Pussy_Lewd,
@@ -56,23 +47,4 @@ public enum NsfwImgEndpoint
     All_Tags_Ero,
     Tits_Lewd,
     Yuri_Ero
-}
-
-public enum NsfwGifEndpoint
-{
-    Yiff,
-    Pussy_Wank,
-    Neko,
-    Kuni,
-    Blow_Job,
-    Pussy,
-    Girls_Solo,
-    Yuri,
-    Anal,
-    Tits,
-    Classic,
-    Feet,
-    Spank,
-    Cum,
-    All_Tags
 }

@@ -12,8 +12,8 @@
         <PackageProjectUrl>https://github.com/Nekos-life/Nekos.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Nekos-life/Nekos.Net</RepositoryUrl>
         <PackageTags>nekos nekos.net nekos.life</PackageTags>
-        <PackageIcon>https://github.com/Nekos-life/Nekos.Net/blob/master/icon.png</PackageIcon>
-        <PackageLicense>https://github.com/Nekos-life/Nekos.Net/blob/master/LICENSE.md</PackageLicense>
+        <PackageIconUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/icon.png</PackageIconUrl>
+        <PackageLicenseUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/LICENSE.md</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
         <PackageVersion>3.0.0</PackageVersion>
     </PropertyGroup>

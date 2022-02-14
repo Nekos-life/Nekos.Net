@@ -1,8 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekos.Net", "Nekos.Net\Nekos.Net.csproj", "{FD1F75DE-E427-4764-8921-5CCCE151DF7A}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nekos.Net", "Nekos.Net\Nekos.Net.csproj", "{FD1F75DE-E427-4764-8921-5CCCE151DF7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekos.Net.Examples", "Nekos.Net.Examples\Nekos.Net.Examples.csproj", "{BCCC2098-C207-4F4F-989D-F66C52310F00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekos.Net.Tests", "Nekos.Net.Tests\Nekos.Net.Tests.csproj", "{F6CEB6A0-EE02-4CBF-8C9F-361094132593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekos.Net.TestProgram", "Nekos.Net.TestProgram\Nekos.Net.TestProgram.csproj", "{BD87B55B-FC6E-4FDE-ABF7-24CD191712C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +19,19 @@ Global
 		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD1F75DE-E427-4764-8921-5CCCE151DF7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCCC2098-C207-4F4F-989D-F66C52310F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCCC2098-C207-4F4F-989D-F66C52310F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCCC2098-C207-4F4F-989D-F66C52310F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCCC2098-C207-4F4F-989D-F66C52310F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CEB6A0-EE02-4CBF-8C9F-361094132593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CEB6A0-EE02-4CBF-8C9F-361094132593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CEB6A0-EE02-4CBF-8C9F-361094132593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CEB6A0-EE02-4CBF-8C9F-361094132593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD87B55B-FC6E-4FDE-ABF7-24CD191712C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD87B55B-FC6E-4FDE-ABF7-24CD191712C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD87B55B-FC6E-4FDE-ABF7-24CD191712C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD87B55B-FC6E-4FDE-ABF7-24CD191712C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EC1DF95-7309-469D-A1B3-9CF5C2C2493C}
 	EndGlobalSection
 EndGlobal

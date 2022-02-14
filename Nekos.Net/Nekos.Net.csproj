@@ -18,7 +18,7 @@
         <PackageVersion>3.0.0</PackageVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
         <PackageReference Include="Serilog" Version="2.11.0-dev-01380" />
         <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />

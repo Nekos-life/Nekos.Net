@@ -15,7 +15,7 @@
         <PackageIconUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/icon.png</PackageIconUrl>
         <PackageLicenseUrl>https://github.com/Nekos-life/Nekos.Net/blob/master/LICENSE.md</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>3.1.1</PackageVersion>
+        <PackageVersion>3.1.2</PackageVersion>
         <Nullable>warnings</Nullable>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>

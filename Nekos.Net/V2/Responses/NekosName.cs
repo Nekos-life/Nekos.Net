@@ -3,7 +3,7 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /img endpoint response.
+///     Response object for name requests.
 /// </summary>
 public class NekosName
 {

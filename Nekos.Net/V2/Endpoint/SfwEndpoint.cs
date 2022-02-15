@@ -11,6 +11,7 @@ public enum SfwEndpoint
     /// <summary>
     ///     Everything except for Random.
     /// </summary>
+    /// <seealso cref="Random"/>
     All = 0,
 
     /// <summary>

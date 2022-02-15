@@ -31,8 +31,12 @@ public class NekosV2Client : BaseNekosClient
     /// <param name="endpoints">Members of <see cref="SfwEndpoint" /> enum representing the endpoints.</param>
     /// <param name="count">How many times EACH INDIVIDUAL REQUEST should be made.</param>
     /// <returns>Requested SFW results.</returns>
-    public async Task<IEnumerable<NekosImage>> RequestSfwResultsAsync(SfwEndpoint endpoints, int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosImage>> RequestSfwResultsAsync(SfwEndpoint endpoints, uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         List<NekosImage> responses = new();
         IEnumerable<SfwEndpoint> availableFlags = Enum.GetValues<SfwEndpoint>();
 
@@ -60,7 +64,7 @@ public class NekosV2Client : BaseNekosClient
                 processedEndpoint = availableFlags.ToArray()[indexPick];
 
                 if (IsLoggingAllowed)
-                    Logger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
+                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
             }
 
             var dest = processedEndpoint.ToString().ToLower();
@@ -81,8 +85,12 @@ public class NekosV2Client : BaseNekosClient
     /// <param name="endpoints">Members of <see cref="NsfwEndpoint" /> enum representing the endpoints.</param>
     /// <param name="count">How many times EACH INDIVIDUAL REQUEST should be made.</param>
     /// <returns>Requested NSFW results.</returns>
-    public async Task<IEnumerable<NekosImage>> RequestNsfwResultsAsync(NsfwEndpoint endpoints, int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosImage>> RequestNsfwResultsAsync(NsfwEndpoint endpoints, uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         List<NekosImage> responses = new();
         IEnumerable<NsfwEndpoint> availableFlags = Enum.GetValues<NsfwEndpoint>();
 
@@ -110,7 +118,7 @@ public class NekosV2Client : BaseNekosClient
                 processedEndpoint = availableFlags.ToArray()[indexPick];
 
                 if (IsLoggingAllowed)
-                    Logger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
+                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
             }
 
             var dest = processedEndpoint.ToString().ToLower();
@@ -133,10 +141,14 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">How many times EACH INDIVIDUAL REQUEST should be made.</param>
     /// <returns>A list of responses to all NSFW endpoints.</returns>
-    public async Task<IEnumerable<NekosImage>> RequestAllNsfwAsync(int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosImage>> RequestAllNsfwAsync(uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         if (IsLoggingAllowed)
-            Logger.LogWarning("Requesting to all NSFW endpoints");
+            NekoLogger.LogWarning("Requesting to all NSFW endpoints");
 
         List<NekosImage> responses = new();
         IEnumerable<NsfwEndpoint> availableFlags = Enum.GetValues<NsfwEndpoint>();
@@ -165,10 +177,14 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">How many times EACH INDIVIDUAL REQUEST should be made.</param>
     /// <returns>A list of responses to all endpoints.</returns>
-    public async Task<IEnumerable<NekosImage>> RequestAllSfwAsync(int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosImage>> RequestAllSfwAsync(uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         if (IsLoggingAllowed)
-            Logger.LogWarning("Requesting to all SFW endpoints");
+            NekoLogger.LogWarning("Requesting to all SFW endpoints");
 
         List<NekosImage> responses = new();
         IEnumerable<SfwEndpoint> availableFlags = Enum.GetValues<SfwEndpoint>();
@@ -203,8 +219,12 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of facts you want to get.</param>
     /// <returns>List of facts.</returns>
-    public async Task<IEnumerable<NekosFact>> RequestFactsAsync(int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosFact>> RequestFactsAsync(uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         List<NekosFact> facts = new();
         for (int i = 0; i < count; ++i)
             facts.Add(await GetResponse<NekosFact>($"{HostUrl}{FactUrlSegment}").ConfigureAwait(false));
@@ -217,8 +237,12 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of names you want to get.</param>
     /// <returns>List of names.</returns>
-    public async Task<IEnumerable<NekosName>> RequestNamesAsync(int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosName>> RequestNamesAsync(uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         List<NekosName> names = new();
         
         for (int i = 0; i < count; ++i)
@@ -247,7 +271,6 @@ public class NekosV2Client : BaseNekosClient
     
     /// <summary>
     ///     Cover EVERY CHARACTERS of your input text with Discord-style spoiler.
-    ///     Might not work with all websites.
     /// </summary>
     /// <example>"abc" will become "||a||||b||||c||"</example>
     /// <param name="text">Input text, must be between 1 and 200 in length.</param>
@@ -269,8 +292,12 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of why-questions you want to get.</param>
     /// <returns>List of why-questions.</returns>
-    public async Task<IEnumerable<NekosWhy>> RequestWhyQuestionsAsync(int count = 1)
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosWhy>> RequestWhyQuestionsAsync(uint count = 1)
     {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
         List<NekosWhy> questions = new();
         
         for (int i = 0; i < count; ++i)

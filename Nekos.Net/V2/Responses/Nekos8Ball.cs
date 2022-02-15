@@ -3,7 +3,7 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /8ball endpoint response.
+///     Response object for 8ball requests.
 /// </summary>
 public class Nekos8Ball
 {

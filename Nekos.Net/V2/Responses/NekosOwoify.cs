@@ -3,12 +3,12 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /owoify and /spoiler endpoint response.
+///     Response object for OwO-ify/spoiler requests.
 /// </summary>
 public class NekosOwoify
 {
     /// <summary>
-    ///     The owoified string or spoiler
+    ///     The OwO-ified/spoiler-covered text.
     /// </summary>
-    [JsonProperty("owo")] public string Owo;
+    [JsonProperty("owo")] public string OwO;
 }

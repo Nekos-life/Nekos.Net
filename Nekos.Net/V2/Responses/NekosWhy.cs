@@ -3,12 +3,12 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /why endpoint response.
+///     Response object for why-question requests.
 /// </summary>
 public class NekosWhy
 {
     /// <summary>
-    ///     Random why question.
+    ///     Why question.
     /// </summary>
     [JsonProperty("why")] public string Why;
 }

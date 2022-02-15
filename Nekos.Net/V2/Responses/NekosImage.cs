@@ -3,12 +3,12 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /img endpoint response.
+///     Response object for image requests.
 /// </summary>
 public class NekosImage
 {
     /// <summary>
-    ///     The image/GIF URL depends on your search.
+    ///     Image/GIF URL.
     /// </summary>
     [JsonProperty("url")] public string Url;
 }

@@ -1,12 +1,10 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Nekos.Net.V2;
 using Nekos.Net.V3;
 using Newtonsoft.Json;
-using Serilog;
-using Serilog.Extensions.Logging;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace Nekos.Net.Prototypes;
 
@@ -15,19 +13,20 @@ namespace Nekos.Net.Prototypes;
 ///     Normally you should not use this.
 ///     Use <see cref="NekosV2Client"/> or <see cref="NekosV3Client"/> class instead.
 /// </summary>
+
 public class BaseNekosClient
 {
     /// <summary>
     ///     Base URL to send request.
     ///     Should be initialized through a constructor.
     /// </summary>
-    protected static string HostUrl;
+    private protected static string HostUrl;
     
     /// <summary>
-    ///     Logger to log the execution of program, an instance of Microsoft.Extensions.Logging.ILogger.
-    ///     Defaults to Serilog's instance.
+    ///     Logger to log the execution of program.
+    ///     An instance of Microsoft.Extensions.Logging.ILogger.
     /// </summary>
-    protected static ILogger Logger;
+    protected ILogger NekoLogger;
     
     /// <summary>
     ///     Whether logging is allowed or not.
@@ -35,65 +34,73 @@ public class BaseNekosClient
     protected bool IsLoggingAllowed;
 
     /// <summary>
-    ///     A boilerplate client.
-    ///     Normally you should not use this.
-    ///     Use <see cref="NekosV2Client"/> or <see cref="NekosV3Client"/> class instead.
+    ///     Construct a client with provided logger and logging option.
     /// </summary>
-    static BaseNekosClient()
+    /// <param name="logger"></param>
+    /// <param name="isLoggingAllowed"></param>
+    protected BaseNekosClient(ILogger logger, bool isLoggingAllowed = true)
     {
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console()
-            .MinimumLevel.Debug()
-            .CreateLogger();
-
-        SerilogLoggerProvider logger = new(Log.Logger);
-        Logger = logger.CreateLogger(nameof(BaseNekosClient));
+        NekoLogger = logger;
+        IsLoggingAllowed = isLoggingAllowed;
     }
 
     /// <summary>
-    ///     Create a client from other client.
+    ///     Construct a client with no logger and no logging allowed.
+    /// </summary>
+    protected BaseNekosClient()
+    {
+        NekoLogger = NullLogger<BaseNekosClient>.Instance;
+        IsLoggingAllowed = false;
+    }
+
+    /// <summary>
+    ///     Construct a client from the other client.
     /// </summary>
     /// <param name="other">Other client.</param>
     protected BaseNekosClient(BaseNekosClient other)
     {
         IsLoggingAllowed = other.IsLoggingAllowed;
+        NekoLogger = other.NekoLogger;
     }
 
     /// <summary>
-    ///     Decides if you want to log the execution.
+    ///     Override currently used logging allowance.
     /// </summary>
-    /// <param name="allowLogging">true if logging is allowed, false otherwise.</param>
-    protected BaseNekosClient(bool allowLogging = true)
+    /// <param name="isLoggingAllowed">true if logging is allowed, false otherwise.</param>
+    /// <returns>Post-reconfigured client. Most of the time you don't need this.</returns>
+    public BaseNekosClient OverrideLoggingAllowance(bool isLoggingAllowed)
     {
-        IsLoggingAllowed = allowLogging;
-    }
-
-    /// <summary>
-    ///     Decides if you want to log the execution.
-    /// </summary>
-    /// <param name="allowLogging">true if logging is allowed, false otherwise.</param>
-    /// <returns>Post-configured client.</returns>
-    public BaseNekosClient AllowLogging(bool allowLogging)
-    {
-        IsLoggingAllowed = allowLogging;
+        IsLoggingAllowed = isLoggingAllowed;
         return this;
     }
 
     /// <summary>
-    ///     Override currently used logger with a new logger.
+    ///     Override currently used logger.
     /// </summary>
-    /// <param name="logger">An instance of Microsoft.Extensions.Logging.ILogger.</param>
-    /// <returns>Post-configured client.</returns>
-    public BaseNekosClient SetLogger(ILogger logger)
+    /// <param name="logger">New logger. An instance of Microsoft.Extensions.Logging.ILogger.</param>
+    /// <returns>Post-reconfigured client. Most of the time you don't need this.</returns>
+    public BaseNekosClient OverrideLogger(ILogger logger)
     {
-        Logger = logger;
+        NekoLogger = logger;
         return this;
     }
-    
+
+    /// <summary>
+    ///     Override currently used client.
+    /// </summary>
+    /// <param name="other">Other client.</param>
+    /// <returns>Post-reconfigured client. Most of the time you don't need this.</returns>
+    public BaseNekosClient OverrideClient(BaseNekosClient other)
+    {
+        NekoLogger = other.NekoLogger;
+        IsLoggingAllowed = other.IsLoggingAllowed;
+        return this;
+    }
+
     /// <summary>
     ///     Send the request asynchronously.
     /// </summary>
-    /// <param name="destination">Full destination URl</param>
+    /// <param name="destination">Full destination URL.</param>
     /// <typeparam name="T">Class to deserialize from JSON.</typeparam>
     /// <returns>JSON-deserialized class.</returns>
     protected async Task<T> GetResponse<T>(string destination)
@@ -104,12 +111,12 @@ public class BaseNekosClient
 
         if (!res.IsSuccessStatusCode)
             if (IsLoggingAllowed)
-                Logger.LogError($"{destination} returned status code: {res.StatusCode}");
-
+                NekoLogger.LogError($"{destination} returned status code: {res.StatusCode}");
+        
         var response = await res.Content.ReadAsStringAsync();
 
         if (IsLoggingAllowed)
-            Logger.LogDebug($"{destination} returned: {response}".Replace('\n', '\0'));
+            NekoLogger.LogDebug($"{destination} returned: {response}".Replace('\n', '\0'));
 
         return JsonConvert.DeserializeObject<T>(response);
     }

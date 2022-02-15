@@ -3,7 +3,7 @@
 namespace Nekos.Net.V2.Responses;
 
 /// <summary>
-///     Represents for /fact endpoint response.
+///     Response object for fact requests.
 /// </summary>
 public class NekosFact
 {

@@ -2,6 +2,7 @@
 using Nekos.Net.V2.Endpoint;
 using Nekos.Net.V3;
 using Nekos.Net.V3.Endpoints;
+using Serilog;
 
 namespace Nekos.Net.TestProgram;
 
@@ -9,6 +10,11 @@ public static class Program
 {
     public static void Main()
     {
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .CreateLogger();
+        
         V2().ConfigureAwait(false).GetAwaiter().GetResult();
         V3().ConfigureAwait(false).GetAwaiter().GetResult();
     }
@@ -16,6 +22,7 @@ public static class Program
     private static async Task V2()
     {
         NekosV2Client client = new();
+
         await client.RequestAllNsfwAsync();
         await client.RequestAllSfwAsync();
         await client.RequestNsfwResultsAsync(NsfwEndpoint.Random | NsfwEndpoint.All | NsfwEndpoint.Eron);
@@ -30,6 +37,7 @@ public static class Program
     private static async Task V3()
     {
         NekosV3Client client = new();
+        
         IEnumerable<SfwImgEndpoint> availableFlags1 = Enum.GetValues<SfwImgEndpoint>();
         IEnumerable<SfwGifEndpoint> availableFlags2 = Enum.GetValues<SfwGifEndpoint>();
         IEnumerable<NsfwImgEndpoint> availableFlags3 = Enum.GetValues<NsfwImgEndpoint>();

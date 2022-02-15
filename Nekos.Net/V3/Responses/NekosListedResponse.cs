@@ -3,41 +3,46 @@ using Newtonsoft.Json;
 
 namespace Nekos.Net.V3.Responses;
 
+/// <summary>
+///     Response data with multiple image/GIF URLs returned.
+/// </summary>
 public class NekosListedResponse
 {
+    /// <summary>
+    ///     <inheritdoc cref="NekosSingleResponseData"/>
+    /// </summary>
     [JsonProperty("data")]
-    public NekosResponseListData Data;
+    public NekosListedResponseData Data;
     
+    /// <summary>
+    ///     <inheritdoc cref="NekosResponseStatus"/>
+    /// </summary>
     [JsonProperty("status")]
-    public NekosResponseListData Status;
+    public NekosResponseStatus Status;
 }
 
+/// <summary>
+///     <inheritdoc cref="NekosSingleResponseData"/>
+/// </summary>
 [JsonObject("data")]
-public class NekosResponseListData
+public class NekosListedResponseData
 {
+    /// <summary>
+    ///     <inheritdoc cref="NekosSingleResponseDataResponse"/>
+    /// </summary>
     [JsonProperty("response")]
-    public NekosResponseListDataResponse Response;
+    public NekosListedResponseDataResponse Response;
 }
 
+/// <summary>
+///     <inheritdoc cref="NekosSingleResponseDataResponse"/>
+/// </summary>
 [JsonObject("response")]
-public class NekosResponseListDataResponse
+public class NekosListedResponseDataResponse
 {
+    /// <summary>
+    ///     Provided Image/GIF URLs.
+    /// </summary>
     [JsonProperty("urls")]
     public List<string> Urls;
-}
-
-[JsonObject("status")]
-public class NekosResponseListStatus
-{
-    [JsonProperty("rendered_in")]
-    public double RenderedIn;
-    
-    [JsonProperty("message")]
-    public int RequestMessage;
-    
-    [JsonProperty("code")]
-    public int StatusCode;
-    
-    [JsonProperty("success")]
-    public bool Success;
 }

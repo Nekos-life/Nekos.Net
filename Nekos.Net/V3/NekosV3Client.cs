@@ -7,6 +7,9 @@ using Nekos.Net.V3.Responses;
 
 namespace Nekos.Net.V3;
 
+/// <summary>
+///     A client to interact with nekos.life API v3
+/// </summary>
 public class NekosV3Client : BaseNekosClient
 {
     static NekosV3Client()

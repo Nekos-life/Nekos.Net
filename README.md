@@ -15,13 +15,13 @@ supporting both v2 and v3 API. If you love this repo, consider giving it a star 
 ```c#
 namespace Hello.There.Nekos;
 
-public class Test
+public class Program
 {
     public async Task ExecuteMeAsync()
     {
-        NekosV2Client client = new NekosV2Client();
+        NekosV2Client client = new();
         NekoOwoify owo = await client.OwOifyAsync("Hello world");
-        Console.WriteLine(owo.owo);
+        Console.WriteLine(owo.OwO);
     }
 }
 ```
@@ -30,13 +30,32 @@ public class Test
 ```c#
 namespace Hello.There.Nekos;
 
-public class Test
+public class Program
 {
     public async Task ExecuteMeAsync()
     {
-        NekosV3Client client = new NekosV3Client();
-        NekosSingleResponse res = await client.WithSfwImgEndpoint(SfwImgEndpoint.Neko).GetSingle();
+        NekosV3Client client = new();
+        NekosSingleResponse res = await client.WithSfwImgEndpoint(SfwImgEndpoint.Neko).GetAsync();
         Console.WriteLine(res.Data.Response.Url);
+    }
+}
+```
+### With logging (I will use [Serilog](https://github.com/serilog/serilog) for example)
+```c#
+namespace Hello.There.Nekos;
+
+public class Program
+{
+    private NekosV2Client _clientWithLogging;
+
+    public void CreateAClientWithLogger()
+    {
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .CreateLogger();
+            
+        _clientWithLogging = new(new SerilogLoggerProvider(Log.Logger).CreateLogger("Nekos"));        
     }
 }
 ```

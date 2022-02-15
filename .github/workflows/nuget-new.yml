@@ -29,5 +29,6 @@ jobs:
         run: |
           # Config: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry
           dotnet nuget add source --username Swyreee --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Swyreee/index.json"
+          dotnet build Nekos.Net -c Release
           dotnet pack Nekos.Net -c Release
-          dotnet nuget push "bin/Release/Nekos.Net.${{ steps.publish_nuget.outputs.VERSION }}.nupkg" --api-key ${{ secrets.MY_PAT }} --source "github"
+          dotnet nuget push "bin/Release/Nekos.Net.3.0.1.nupkg" --api-key ${{ secrets.MY_PAT }} --source "github"

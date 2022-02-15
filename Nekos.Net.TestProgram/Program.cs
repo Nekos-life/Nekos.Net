@@ -2,7 +2,6 @@
 using Nekos.Net.V2.Endpoint;
 using Nekos.Net.V3;
 using Nekos.Net.V3.Endpoints;
-using Serilog;
 
 namespace Nekos.Net.TestProgram;
 
@@ -10,11 +9,6 @@ public static class Program
 {
     public static void Main()
     {
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Debug()
-            .WriteTo.Console()
-            .CreateLogger();
-        
         V2().ConfigureAwait(false).GetAwaiter().GetResult();
         V3().ConfigureAwait(false).GetAwaiter().GetResult();
     }

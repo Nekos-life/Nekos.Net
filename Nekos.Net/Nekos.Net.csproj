@@ -10,7 +10,7 @@
         <Product />
         <Description>A .NET library for interacting with catgirls.</Description>
         <PackageProjectUrl>https://nekos.life</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Swyreee/Nekos.Net</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Nekos-life/Nekos.Net</RepositoryUrl>
         <PackageTags>nekos nekos.net nekos.life</PackageTags>
         <PackageIconUrl>https://github.com/Swyreee/Nekos.Net/blob/master/icon.png</PackageIconUrl>
         <PackageLicenseUrl>https://github.com/Swyreee/Nekos.Net/blob/master/LICENSE.md</PackageLicenseUrl>

@@ -258,7 +258,7 @@ public class NekosV2Client : BaseNekosClient
     /// <example>"hello" will become "hewwo"</example>
     /// <returns>OwO-ified input text.</returns>
     /// <exception cref="ArgumentException">When the input text is null, empty, consists of whitespaces or more than 200 characters.</exception>
-    public async Task<NekosOwoify> RequestOwOifyTextAsync(string text)
+    public async Task<NekosOwOify> RequestOwOifyTextAsync(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
             throw new ArgumentException($"Invalid text provided: {text}", nameof(text));
@@ -266,7 +266,7 @@ public class NekosV2Client : BaseNekosClient
         if (text.Length > 200)
             throw new ArgumentException($"Text length must be under 200: {text}", nameof(text));
 
-        return await GetResponse<NekosOwoify>($"{HostUrl}{OwOifyUrlSegment}?{nameof(text)}={text}");
+        return await GetResponse<NekosOwOify>($"{HostUrl}{OwOifyUrlSegment}?{nameof(text)}={text}");
     }
     
     /// <summary>
@@ -276,7 +276,7 @@ public class NekosV2Client : BaseNekosClient
     /// <param name="text">Input text, must be between 1 and 200 in length.</param>
     /// <returns>Spoiler-covered input text.</returns>
     /// <exception cref="ArgumentException">When the input text is null, empty, consists of whitespaces or more than 200 characters.</exception>
-    public async Task<NekosOwoify> RequestSpoilerAsync(string text)
+    public async Task<NekosOwOify> RequestSpoilerAsync(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
             throw new ArgumentException($"Invalid text provided: {text}", nameof(text));
@@ -284,7 +284,7 @@ public class NekosV2Client : BaseNekosClient
         if (text.Length > 200)
             throw new ArgumentException($"Text length must be under 200: {text}", nameof(text));
 
-        return await GetResponse<NekosOwoify>($"{HostUrl}{SpoilerUrlSegment}?{nameof(text)}={text}");
+        return await GetResponse<NekosOwOify>($"{HostUrl}{SpoilerUrlSegment}?{nameof(text)}={text}");
     }
 
     /// <summary>

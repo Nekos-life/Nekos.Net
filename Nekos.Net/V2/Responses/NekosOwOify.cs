@@ -5,7 +5,7 @@ namespace Nekos.Net.V2.Responses;
 /// <summary>
 ///     Response object for OwO-ify/spoiler requests.
 /// </summary>
-public class NekosOwoify
+public class NekosOwOify
 {
     /// <summary>
     ///     The OwO-ified/spoiler-covered text.

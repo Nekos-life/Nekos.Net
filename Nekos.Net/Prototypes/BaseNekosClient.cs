@@ -13,7 +13,6 @@ namespace Nekos.Net.Prototypes;
 ///     Normally you should not use this.
 ///     Use <see cref="NekosV2Client"/> or <see cref="NekosV3Client"/> class instead.
 /// </summary>
-
 public class BaseNekosClient
 {
     /// <summary>
@@ -75,13 +74,14 @@ public class BaseNekosClient
     }
 
     /// <summary>
-    ///     Override currently used logger.
+    ///     Override currently used logger. Implicitly set <see cref="IsLoggingAllowed"/> to true.
     /// </summary>
     /// <param name="logger">New logger. An instance of Microsoft.Extensions.Logging.ILogger.</param>
     /// <returns>Post-reconfigured client. Most of the time you don't need this.</returns>
     public BaseNekosClient OverrideLogger(ILogger logger)
     {
         NekoLogger = logger;
+        IsLoggingAllowed = true;
         return this;
     }
 

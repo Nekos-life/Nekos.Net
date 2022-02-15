@@ -16,6 +16,27 @@ public class NekosV2Client : BaseNekosClient
         HostUrl = "https://nekos.life/api/v2";
     }
 
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV2Client() : base()
+    {
+    }
+    
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV2Client(NekosV2Client other) : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV2Client(ILogger logger, bool isLoggingAllowed = true) : base(logger, isLoggingAllowed)
+    {
+    }
+
     // segments
     private const string MediaRequestUrlSegment = "/img";
     private const string EightBallUrlSegment = "/8ball";

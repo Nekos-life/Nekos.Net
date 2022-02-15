@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Nekos.Net.Prototypes;
 using Nekos.Net.V3.Endpoints;
 using Nekos.Net.V3.Responses;
@@ -13,6 +14,28 @@ public class NekosV3Client : BaseNekosClient
         HostUrl = "https://api.nekos.dev/api/v3/images";
     }
 
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV3Client() : base()
+    {
+    }
+    
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV3Client(NekosV3Client other) : base(other)
+    {
+    }
+
+    /// <summary>
+    ///     <inheritdoc/>
+    /// </summary>
+    public NekosV3Client(ILogger logger, bool isLoggingAllowed = true) : base(logger, isLoggingAllowed)
+    {
+    }
+    
+    // segments
     private string _mediaType = "img";
     private string _maturity = "sfw";
     private string _endpoint = "poke";

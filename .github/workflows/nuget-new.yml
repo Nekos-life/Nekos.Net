@@ -1,13 +1,12 @@
-name: Publish to NuGet
+name: Publish to NuGet & GitHub Packages
 on:
   workflow_dispatch:
 jobs:
   publish:
-    name: build, pack & publish
+    name: publish
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
@@ -19,16 +18,16 @@ jobs:
           # Config: https://github.com/brandedoutcast/publish-nuget
           PROJECT_FILE_PATH: Nekos.Net/Nekos.Net.csproj
           PACKAGE_NAME: Nekos.Net
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+          VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
           TAG_COMMIT: true
           TAG_FORMAT: v*
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: false
-      - name: Publish to GitHub packages
+      - name: Publish to GitHub Packages
         run: |
           # Config: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry
           dotnet nuget add source --username Swyreee --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Swyreee/index.json"
           dotnet build Nekos.Net -c Release
           dotnet pack Nekos.Net -c Release
-          dotnet nuget push "Nekos.Net/bin/Release/Nekos.Net.3.0.1.nupkg" --api-key ${{ secrets.MY_PAT }} --source "github"
+          dotnet nuget push "${{ steps.publish_nuget.outputs.PACKAGE_NAME }}/bin/Release/${{ steps.publish_nuget.outputs.PACKAGE_NAME }}.${{ steps.publish_nuget.outputs.VERSION }}.nupkg" --api-key ${{ secrets.MY_PAT }} --source "github"

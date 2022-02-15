@@ -30,4 +30,4 @@ jobs:
           dotnet nuget add source --username Swyreee --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Swyreee/index.json"
           dotnet build Nekos.Net -c Release
           dotnet pack Nekos.Net -c Release
-          dotnet nuget push "${{ steps.publish_nuget.outputs.PACKAGE_NAME }}/bin/Release/${{ steps.publish_nuget.outputs.PACKAGE_NAME }}.${{ steps.publish_nuget.outputs.VERSION }}.nupkg" --api-key ${{ secrets.MY_PAT }} --source "github"
+          dotnet nuget push "Nekos.Net/bin/Release/${{ steps.publish_nuget.outputs.PACKAGE_NAME }}" --api-key ${{ secrets.MY_PAT }} --source "github"

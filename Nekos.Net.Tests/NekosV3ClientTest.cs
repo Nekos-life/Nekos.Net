@@ -17,17 +17,17 @@ namespace Nekos.Net.Tests
             try
             {
                 NekosV3Client client = new();
-                client.AllowLogging(false);
+                client.OverrideLoggingAllowance(true);
                 
                 IEnumerable<SfwImgEndpoint> availableFlags1 = Enum.GetValues<SfwImgEndpoint>();
                 IEnumerable<SfwGifEndpoint> availableFlags2 = Enum.GetValues<SfwGifEndpoint>();
                 IEnumerable<NsfwImgEndpoint> availableFlags3 = Enum.GetValues<NsfwImgEndpoint>();
                 IEnumerable<NsfwGifEndpoint> availableFlags4 = Enum.GetValues<NsfwGifEndpoint>();
         
-                foreach (SfwImgEndpoint endpoint in availableFlags1) client.WithSfwImgEndpoint(endpoint).GetSingleAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-                foreach (SfwGifEndpoint endpoint in availableFlags2) client.WithSfwGifEndpoint(endpoint).GetSingleAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-                foreach (NsfwImgEndpoint endpoint in availableFlags3) client.WithNsfwImgEndpoint(endpoint).GetSingleAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-                foreach (NsfwGifEndpoint endpoint in availableFlags4) client.WithNsfwGifEndpoint(endpoint).GetSingleAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                foreach (SfwImgEndpoint endpoint in availableFlags1) client.WithSfwImgEndpoint(endpoint).GetAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                foreach (SfwGifEndpoint endpoint in availableFlags2) client.WithSfwGifEndpoint(endpoint).GetAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                foreach (NsfwImgEndpoint endpoint in availableFlags3) client.WithNsfwImgEndpoint(endpoint).GetAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                foreach (NsfwGifEndpoint endpoint in availableFlags4) client.WithNsfwGifEndpoint(endpoint).GetAsync().ConfigureAwait(false).GetAwaiter().GetResult();
             } catch
             {
                 isSuccess = false;

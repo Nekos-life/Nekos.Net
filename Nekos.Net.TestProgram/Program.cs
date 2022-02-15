@@ -35,9 +35,9 @@ public static class Program
         IEnumerable<NsfwImgEndpoint> availableFlags3 = Enum.GetValues<NsfwImgEndpoint>();
         IEnumerable<NsfwGifEndpoint> availableFlags4 = Enum.GetValues<NsfwGifEndpoint>();
         
-        foreach (SfwImgEndpoint endpoint in availableFlags1) await client.WithSfwImgEndpoint(endpoint).GetSingleAsync();
-        foreach (SfwGifEndpoint endpoint in availableFlags2) await client.WithSfwGifEndpoint(endpoint).GetSingleAsync();
-        foreach (NsfwImgEndpoint endpoint in availableFlags3) await client.WithNsfwImgEndpoint(endpoint).GetSingleAsync();
-        foreach (NsfwGifEndpoint endpoint in availableFlags4) await client.WithNsfwGifEndpoint(endpoint).GetSingleAsync();
+        foreach (SfwImgEndpoint endpoint in availableFlags1) await client.WithSfwImgEndpoint(endpoint).GetAsync();
+        foreach (SfwGifEndpoint endpoint in availableFlags2) await client.WithSfwGifEndpoint(endpoint).GetAsync();
+        foreach (NsfwImgEndpoint endpoint in availableFlags3) await client.WithNsfwImgEndpoint(endpoint).GetAsync();
+        foreach (NsfwGifEndpoint endpoint in availableFlags4) await client.WithNsfwGifEndpoint(endpoint).GetAsync();
     }
 }

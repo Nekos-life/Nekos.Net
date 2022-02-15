@@ -16,7 +16,7 @@ namespace Nekos.Net.Tests
             try
             {
                 NekosV2Client client = new();
-                client.AllowLogging(false);
+                client.OverrideLoggingAllowance(false);
 
                 client.RequestAllNsfwAsync().ConfigureAwait(false).GetAwaiter().GetResult();
                 client.RequestAllSfwAsync().ConfigureAwait(false).GetAwaiter().GetResult();

@@ -9,6 +9,9 @@ using Nekos.Net.V2.Responses;
 
 namespace Nekos.Net.V2;
 
+/// <summary>
+///     A client to interact with nekos.life API v2
+/// </summary>
 public class NekosV2Client : BaseNekosClient
 {
     static NekosV2Client()
@@ -63,6 +66,9 @@ public class NekosV2Client : BaseNekosClient
 
         foreach (var endpoint in availableFlags)
         {
+            var isSet = (endpoint & endpoints) != 0;
+            if (!isSet) continue;
+            
             if (endpoint == SfwEndpoint.All)
             {
                 var images = await RequestAllSfwAsync(count).ConfigureAwait(false);
@@ -70,10 +76,6 @@ public class NekosV2Client : BaseNekosClient
                 continue;
             }
 
-            var isSet = endpoints.HasFlag(endpoint);
-
-            if (!isSet) continue;
-            
             Enum processedEndpoint = endpoint;
 
             if (endpoint == SfwEndpoint.Random)
@@ -117,16 +119,15 @@ public class NekosV2Client : BaseNekosClient
 
         foreach (var endpoint in availableFlags)
         {
+            var isSet = (endpoint & endpoints) != 0;
+            if (!isSet) continue;
+            
             if (endpoint == NsfwEndpoint.All)
             {
                 var images = await RequestAllNsfwAsync(count).ConfigureAwait(false);
                 responses.AddRange(images);
                 continue;
             }
-
-            var isSet = endpoints.HasFlag(endpoint);
-
-            if (!isSet) continue;
             
             Enum processedEndpoint = endpoint;
 

@@ -48,6 +48,7 @@ public class NekosV2Client : BaseNekosClient
     private const string OwOifyUrlSegment = "/owoify";
     private const string SpoilerUrlSegment = "/spoiler";
     private const string WhyUrlSegment = "/why";
+    private const string CatUrlSegment = "/cat";
 
     /// <summary>
     ///     Get SFW results.
@@ -324,6 +325,25 @@ public class NekosV2Client : BaseNekosClient
         
         for (int i = 0; i < count; ++i)
             questions.Add(await GetResponse<NekosWhy>($"{HostUrl}{WhyUrlSegment}").ConfigureAwait(false));
+
+        return questions;
+    }
+    
+    /// <summary>
+    ///     Request a random ASCII cat
+    /// </summary>
+    /// <param name="count">Number of ASCII cats you want to get.</param>
+    /// <returns>List of ASCII cats.</returns>
+    /// <exception cref="ArgumentException">When the count is zero.</exception>
+    public async Task<IEnumerable<NekosCat>> RequestCatAsync(uint count = 1)
+    {
+        if (count == 0)
+            throw new ArgumentException("\"count\" must not be zero", nameof(count));
+        
+        List<NekosCat> questions = new();
+        
+        for (int i = 0; i < count; ++i)
+            questions.Add(await GetResponse<NekosCat>($"{HostUrl}{WhyUrlSegment}").ConfigureAwait(false));
 
         return questions;
     }

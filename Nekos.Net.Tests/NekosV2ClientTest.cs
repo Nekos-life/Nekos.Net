@@ -91,6 +91,7 @@ public class NekosV2ClientTest
             await _client.RequestSpoilerAsync("never gonna give you up");
             await _client.RequestOwOifyTextAsync("never gonna let you down");
             await _client.RequestWhyQuestionsAsync();
+            await _client.RequestCatAsync();
         }
         catch
         {

@@ -15,9 +15,10 @@ public enum NsfwEndpoint : ulong
     All = 1 << 0,
 
     /// <summary>
-    ///     A random thing.
+    ///     A random endpoint.
     ///     Use this if you don't know what to pick.
     /// </summary>
+    /// <remarks>May cause infinite loop issue if your luck is terrible.</remarks>
     Random = 1 << 1,
 
     /// <summary>

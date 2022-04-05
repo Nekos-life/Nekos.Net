@@ -76,21 +76,21 @@ public class NekosV2Client : BaseNekosClient
                 continue;
             }
 
-            Enum processedEndpoint = endpoint;
+            SfwEndpoint tempEndpoint = endpoint;
 
-            if (endpoint == SfwEndpoint.Random)
+            while (tempEndpoint == SfwEndpoint.Random)
             {
                 var r = new Random();
                 // random is 0
                 // so simply ignore it
                 var indexPick = r.Next(1, Enum.GetNames(typeof(SfwEndpoint)).Length - 1);
-                processedEndpoint = availableFlags.ToArray()[indexPick];
+                tempEndpoint = availableFlags.ToArray()[indexPick];
 
                 if (IsLoggingAllowed)
-                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
+                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{tempEndpoint.ToString().ToLower()}\"");
             }
 
-            var dest = processedEndpoint.ToString().ToLower();
+            var dest = tempEndpoint.ToString().ToLower();
 
             for (var i = 0; i < count; ++i)
             {
@@ -129,21 +129,20 @@ public class NekosV2Client : BaseNekosClient
                 continue;
             }
             
-            Enum processedEndpoint = endpoint;
-
-            if (endpoint == NsfwEndpoint.Random)
+            NsfwEndpoint tempEndpoint = endpoint;
+            while (tempEndpoint == NsfwEndpoint.Random)
             {
                 var r = new Random();
                 // random is 0
                 // so simply ignore it
                 var indexPick = r.Next(1, Enum.GetNames(typeof(NsfwEndpoint)).Length - 1);
-                processedEndpoint = availableFlags.ToArray()[indexPick];
+                tempEndpoint = availableFlags.ToArray()[indexPick];
 
                 if (IsLoggingAllowed)
-                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{processedEndpoint.ToString().ToLower()}\"");
+                    NekoLogger.LogWarning($"Replaced \"Random\" with \"{tempEndpoint.ToString().ToLower()}\"");
             }
 
-            var dest = processedEndpoint.ToString().ToLower();
+            var dest = tempEndpoint.ToString().ToLower();
 
             // special case
             if (endpoint == NsfwEndpoint.Random_Hentai_Gif) dest = "Random_hentai_gif";

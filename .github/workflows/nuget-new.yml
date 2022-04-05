@@ -1,4 +1,4 @@
-name: Publish to NuGet & GitHub Packages
+name: Publish to NuGet
 on:
   workflow_dispatch:
 jobs:
@@ -18,7 +18,6 @@ jobs:
           # Config: https://github.com/brandedoutcast/publish-nuget
           PROJECT_FILE_PATH: Nekos.Net/Nekos.Net.csproj
           PACKAGE_NAME: Nekos.Net
-          VERSION_REGEX: ^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$
           TAG_COMMIT: true
           TAG_FORMAT: v*
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}

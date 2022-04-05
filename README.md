@@ -2,10 +2,10 @@
 
 > "A project made for nekos" - Swyrin
 
-![GH_UserCount](https://badgen.net/github/dependents-repo/Swyreee/Nekos.Net)
-![NG_LatestVersion](https://badgen.net/nuget/v/Nekos.Net/latest)
+[![GH_UserCount](https://badgen.net/github/dependents-repo/Swyreee/Nekos.Net)](https://github.com/Nekos-life/Nekos.Net/network/dependents)
+[![NG_LatestVersion](https://badgen.net/nuget/v/Nekos.Net/latest)](https://www.nuget.org/packages/Nekos.Net/)
 ![NG_DLCount](https://badgen.net/nuget/dt/Nekos.Net)
-![Discord_MemberCount](https://badgen.net/discord/members/BARzYz8)
+[![Discord_MemberCount](https://badgen.net/discord/members/BARzYz8)](http://discord.com/invite/BARzYz8)
 
 `Nekos.Net` is an asynchronous library to interact with [nekos.life](https://nekos.life) API, currently
 supporting both v2 and v3 API. If you love this repo, consider giving it a star :star:
@@ -40,7 +40,7 @@ public class Program
     }
 }
 ```
-### With logging (I will use [Serilog](https://github.com/serilog/serilog) for example)
+### With logging (+[Serilog](https://github.com/serilog/serilog))
 ```c#
 namespace Hello.There.Nekos;
 

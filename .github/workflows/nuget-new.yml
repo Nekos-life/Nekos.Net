@@ -24,10 +24,3 @@ jobs:
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: false
-      - name: Publish to GitHub Packages
-        run: |
-          # Config: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry
-          dotnet nuget add source --username Swyreee --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Swyreee/index.json"
-          dotnet build Nekos.Net -c Release
-          dotnet pack Nekos.Net -c Release
-          dotnet nuget push "Nekos.Net/bin/Release/${{ steps.publish_nuget.outputs.PACKAGE_NAME }}" --api-key ${{ secrets.MY_PAT }} --source "github"

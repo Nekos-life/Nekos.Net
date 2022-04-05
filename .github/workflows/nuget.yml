@@ -17,4 +17,4 @@ jobs:
           dotnet pack Nekos.Net -c Release
           cd ./Nekos.Net/bin/Release/
           mv Nekos.Net.*.nupkg Nekos.Net.nupkg
-          dotnet nuget push Nekos.Net.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+          dotnet nuget push Nekos.Net.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate

@@ -11,8 +11,7 @@ namespace Nekos.Net.Tests;
 [TestClass]
 public class NekosV2ClientTest
 {
-
-    private NekosV2Client _client = new();
+    private readonly NekosV2Client _client = new();
 
     [TestMethod]
     public async Task RequestAllAsMethodCallTest()
@@ -73,8 +72,7 @@ public class NekosV2ClientTest
     public async Task RequestNsfwMixedFlagsTest()
     {
         List<NekosImage> results = new();
-        results.AddRange(
-            await _client.RequestNsfwResultsAsync(NsfwEndpoint.Random | NsfwEndpoint.All | NsfwEndpoint.Eron));
+        results.AddRange(await _client.RequestNsfwResultsAsync(NsfwEndpoint.Random | NsfwEndpoint.All | NsfwEndpoint.Eron));
         var nsfwValidFlagCount = Enum.GetValues<NsfwEndpoint>().Length - 2;
         Assert.IsTrue(results.Count == nsfwValidFlagCount + 1 + 1);
     }
@@ -82,7 +80,7 @@ public class NekosV2ClientTest
     [TestMethod]
     public async Task RequestMiscTest()
     {
-        bool isSuccess = true;
+        var isSuccess = true;
 
         try
         {

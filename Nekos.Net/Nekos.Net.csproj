@@ -17,6 +17,7 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <RepositoryType>git</RepositoryType>
         <Version>3.2.0</Version>
+        <PackageVersion>3.2.0</PackageVersion>
         <Nullable>warnings</Nullable>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>

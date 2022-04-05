@@ -230,6 +230,7 @@ public class NekosV2Client : BaseNekosClient
     /// <summary>
     ///     Request an 8ball response.
     /// </summary>
+    /// <example>"Yes"</example>
     /// <returns>An 8ball response.</returns>
     public async Task<Nekos8Ball> Request8BallResponseAsync()
     {
@@ -241,6 +242,7 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of facts you want to get.</param>
     /// <returns>List of facts.</returns>
+    /// <example>"One minute on Earth is equivalent to 60 seconds in Africa"</example>
     /// <exception cref="ArgumentException">When the count is zero.</exception>
     public async Task<IEnumerable<NekosFact>> RequestFactsAsync(uint count = 1)
     {
@@ -259,6 +261,7 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of names you want to get.</param>
     /// <returns>List of names.</returns>
+    /// <example>"Rick"</example>
     /// <exception cref="ArgumentException">When the count is zero.</exception>
     public async Task<IEnumerable<NekosName>> RequestNamesAsync(uint count = 1)
     {
@@ -314,6 +317,7 @@ public class NekosV2Client : BaseNekosClient
     /// </summary>
     /// <param name="count">Number of why-questions you want to get.</param>
     /// <returns>List of why-questions.</returns>
+    /// <example>"why are you so happy?"</example>
     /// <exception cref="ArgumentException">When the count is zero.</exception>
     public async Task<IEnumerable<NekosWhy>> RequestWhyQuestionsAsync(uint count = 1)
     {

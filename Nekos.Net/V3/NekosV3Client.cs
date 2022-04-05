@@ -20,7 +20,7 @@ public class NekosV3Client : BaseNekosClient
     /// <summary>
     ///     <inheritdoc/>
     /// </summary>
-    public NekosV3Client() : base()
+    public NekosV3Client()
     {
     }
     
